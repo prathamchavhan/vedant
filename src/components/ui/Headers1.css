@@ -276,5 +276,9 @@ background: linear-gradient(90deg, #0D0968 0%, #F7751E 100%);
     font-size: 14px;
     border-radius: 5px;
   }
+   .container {
+    flex-direction: column;
+    padding: 10px;
+  }
 }
 
