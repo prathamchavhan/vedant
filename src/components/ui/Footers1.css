@@ -143,3 +143,50 @@ body {
     justify-content: center;
   }
 }
+/* For mid-size phones (≤ 460px) */
+@media (max-width: 460px) {
+  .footer-container {
+    padding: 40px 20px;   /* reduce padding */
+    gap: 40px;            /* reduce spacing */
+  }
+
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 25px;            /* smaller gap between sections */
+  }
+
+  .footer-section {
+    margin: 10px 0;
+    min-width: 180px;     /* shrink min width */
+  }
+
+  .footer-logo {
+    width: 120px;         /* smaller logo */
+    margin-bottom: 15px;
+  }
+
+  .footer-links a {
+    font-size: 13px;      /* smaller font */
+  }
+
+  .contact-section p,
+  .contact-item,
+  .email-link {
+    font-size: 13px;      /* adjust text */
+    justify-content: center;
+    gap: 5px;
+  }
+
+  .social-icons a {
+    font-size: 16px;      /* slightly smaller icons */
+    margin-right: 8px;
+  }
+
+  .footer-bottom {
+    font-size: 13px;
+    margin-top: 15px;
+  }
+}
+
