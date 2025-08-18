@@ -246,4 +246,35 @@ background: linear-gradient(90deg, #0D0968 0%, #F7751E 100%);
   color: inherit;        /* no color change on hover */
   text-decoration: none; /* keep it clean */
 }
+/* For mid-size phones (up to 460px) */
+@media (max-width: 460px) {
+  .header-container {
+    gap: 40px;             /* reduce spacing */
+    padding: 10px 14px;    /* tighter padding */
+  }
+
+  .logo-img {
+    height: 50px;          /* slightly smaller logo */
+  }
+
+  .nav-wrapper {
+    top: 65px;
+    left: 8px;
+    right: 8px;
+    padding: 18px 20px;
+    gap: 12px;             /* reduce nav gaps */
+  }
+
+  .nav-button {
+    font-size: 15px;       /* smaller text */
+    padding: 10px 12px;
+    border-radius: 10px;
+  }
+
+  .head-but {
+    padding: 0.5rem 1rem;  /* smaller CTA button */
+    font-size: 14px;
+    border-radius: 5px;
+  }
+}
 
