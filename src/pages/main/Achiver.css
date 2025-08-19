@@ -1,3 +1,5 @@
+/* ================= Base Layout ================== */
+
 /* Page background */
 .page-container {
   min-height: 40vh;
@@ -11,16 +13,14 @@
 
 /* Main glass container */
 .white-border-container {
-  border: 0.5px solid rgb(248, 248, 248); /* very thin white border */
-  outline: 2px solid rgb(212, 209, 209); /* outer black border */
-  outline-offset: -2px; /* keeps it close to the element */
+  border: 0.5px solid rgb(248, 248, 248);
+  outline: 2px solid rgb(212, 209, 209);
+  outline-offset: -2px;
   border-radius: 0.75rem;
   max-width: 1500px;
-  
   width: 100%;
   background: rgba(0, 0, 0, 0.85);
 
-  /* Glass effect shadows */
   box-shadow: 
     inset -36px 36px 36px rgba(255, 255, 255, 0.1),
     inset 36px -36px 36px rgba(165, 165, 165, 0.1),
@@ -30,7 +30,6 @@
   backdrop-filter: blur(70px);
   -webkit-backdrop-filter: blur(70px);
 }
-
 
 /* Inner content */
 .container-content {
@@ -46,6 +45,7 @@
   gap: 2rem;
 }
 
+/* Desktop (row layout) */
 @media (min-width: 1024px) {
   .flex-col-container {
     flex-direction: row;
@@ -58,23 +58,24 @@
   }
 }
 
-/* Heading */
+/* ================= Headings ================== */
+
 .heading-section h2 {
-  font-size: 4rem;
+  font-size: clamp(2rem, 5vw, 4rem);
   font-weight: 800;
   line-height: 1.3;
+  margin-bottom: 1rem;
 }
 
+/* Desktop adjustment */
 @media (min-width: 1024px) {
   .heading-section h2 {
     font-size: 2.9rem;
-     flex-direction: row;
-    align-items: center;
-    gap: 10rem; 
   }
 }
 
-/* Benefits list */
+/* ================= Benefits ================== */
+
 .benefits {
   display: flex;
   flex-direction: column;
@@ -114,6 +115,68 @@
 .benefit-subtitle {
   color: rgba(209, 213, 219, 1);
   font-size: 1.1rem;
-  gap :1;
   margin-left: 3px;
+}
+
+/* ================= Responsiveness ================== */
+
+/* Tablets (≤ 760px) */
+@media (max-width: 760px) {
+  .container-content {
+    padding: 1.2rem;
+  }
+  .flex-col-container {
+    gap: 1.5rem;
+  }
+  .benefits {
+    margin-left: 0;
+  }
+  .heading-section h2 {
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+    text-align: center;
+  }
+}
+
+/* Small Tablets / Large Phones (≤ 460px) */
+@media (max-width: 460px) {
+  .container-content {
+    padding: 1rem;
+  }
+  .benefit-item {
+    gap: 1rem;
+  }
+  .icon {
+    width: 40px;
+    height: 40px;
+  }
+  .benefit-title {
+    font-size: 1rem;
+  }
+  .benefit-subtitle {
+    font-size: 0.95rem;
+  }
+  .heading-section h2 {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+}
+
+/* Small Phones (≤ 360px) */
+@media (max-width: 360px) {
+  .container-content {
+    padding: 0.8rem;
+  }
+  .icon {
+    width: 35px;
+    height: 35px;
+  }
+  .benefit-title {
+    font-size: 0.95rem;
+  }
+  .benefit-subtitle {
+    font-size: 0.85rem;
+  }
+  .heading-section h2 {
+    font-size: 1.7rem;
+  }
 }

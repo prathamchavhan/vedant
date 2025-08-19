@@ -8,11 +8,11 @@
   position: sticky;
   top: 0;
   z-index: 1000;
-    justify-content: flex-start; 
-   gap: 150px; 
+  gap: 100px; /* ✅ reduced for stability */
+  flex-wrap: nowrap;
 }
 
-/* Logo Styles */
+/* Logo Section */
 .logo-section {
   display: flex;
   align-items: center;
@@ -23,60 +23,49 @@
   margin-right: 9px;
 }
 
-/* Navigation Wrapper Styles with Cyan Border */
+/* Navigation Wrapper */
 .nav-wrapper {
   display: flex;
-  gap: 50px;
+  gap: 40px;
   padding: 6px 14px;
   border: 2px solid transparent;
   border-radius: 30px;
   background: 
-  linear-gradient(rgb(255, 249, 249), rgb(255, 248, 248)) padding-box,
+    linear-gradient(rgb(255, 249, 249), rgb(255, 248, 248)) padding-box,
     linear-gradient(90deg, #0D0968 0%, #F7751E 100%) border-box;
   background-origin: border-box;
   background-clip: padding-box, border-box;
-  margin-left: -15px; 
+  margin-left: -15px;
 }
 
-/* Navigation Button Styles */
+/* Navigation Buttons */
 .nav-button {
-  color: #000000;
+  position: relative;
+  color: #000;
   text-decoration: none;
   padding: 8px 14px;
   border-radius: 30px;
-  font-size: 19px;
-  transition: background-color 0.2s ease;
+  font-size: 18px;
   white-space: nowrap;
-}
-
-/* Active State Styles */
-.nav-button.active {
-  
-  color: #000000;
-}
-.nav-button {
-  position: relative;
-  color: inherit; /* keep your current text color */
-  text-decoration: none; /* remove default underline */
-  
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .nav-button::after {
   content: "";
   position: absolute;
   left: 0;
-bottom: 0px; 
-  height: 3px;             /* thickness of underline */
-  width: 0;                /* start with no underline */
-  background-color: #ff7728; /* underline color */
+  bottom: 0;
+  height: 3px;
+  width: 0;
+  background-color: #f7751e;
   transition: width 0.3s ease;
 }
 
 .nav-button:hover::after {
-  width: 100%;             /* full width underline on hover */
+  width: 100%;
 }
 
-/* Hamburger icon styles */
+/* Hamburger (mobile menu) */
 .mobile-menu-toggle {
   display: none;
   position: relative;
@@ -86,14 +75,13 @@ bottom: 0px;
   border: none;
   background: transparent;
   z-index: 1100;
-  -webkit-tap-highlight-color: transparent;
 }
 
 .mobile-menu-toggle span,
 .mobile-menu-toggle span::before,
 .mobile-menu-toggle span::after {
   display: block;
-  background-color: #0D0968; /* deep blue color for icon */
+  background-color: #0D0968;
   height: 3px;
   border-radius: 2px;
   position: absolute;
@@ -116,7 +104,6 @@ bottom: 0px;
   top: 10px;
 }
 
-/* Animate hamburger to X when open */
 .mobile-menu-toggle.active span {
   background-color: transparent;
 }
@@ -128,7 +115,50 @@ bottom: 0px;
   transform: rotate(-45deg);
   top: 0;
 }
-/* Existing mobile styles for up to 768px */
+
+/* CTA Button */
+.head-but {
+  background: linear-gradient(90deg, #0D0968 0%, #F7751E 100%);
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.3s;
+  white-space: nowrap;
+}
+
+.head-but a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.head-but:hover {
+  opacity: 0.9;
+}
+
+/* ---------------- Responsive Breakpoints ---------------- */
+
+/* Tablets (≤ 1024px) */
+@media (max-width: 1024px) {
+  .header-container {
+    gap: 60px;
+    padding: 12px 18px;
+  }
+
+  .nav-wrapper {
+    gap: 30px;
+  }
+
+  .nav-button {
+    font-size: 16px;
+    padding: 6px 12px;
+  }
+}
+
+/* Tablets & below (≤ 768px) */
 @media (max-width: 768px) {
   .mobile-menu-toggle {
     display: block;
@@ -140,9 +170,8 @@ bottom: 0px;
     top: 70px;
     left: 10px;
     right: 10px;
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: saturate(180%) blur(10px);
-    -webkit-backdrop-filter: saturate(180%) blur(10px);
     box-shadow: 0 12px 24px rgba(15, 15, 15, 0.2);
     flex-direction: column;
     border-radius: 16px;
@@ -157,24 +186,17 @@ bottom: 0px;
   .nav-wrapper.mobile-open {
     display: flex;
     max-height: 600px;
-    padding: 20px 24px;
   }
 
   .nav-button {
-    font-size: 17px;
-    padding: 14px 16px;
-    border-radius: 12px;
-    color: #0D0968;
-    background-color: transparent;
+    font-size: 16px;
+    padding: 12px 14px;
+    border-radius: 10px;
     text-align: center;
-    transition: background-color 0.25s ease, color 0.25s ease;
+    color: #0D0968;
   }
 
-  .nav-button:hover {
-    background-color: #f7751e;
-    color: white;
-  }
-
+  .nav-button:hover,
   .nav-button.active {
     background-color: #f7751e;
     color: white;
@@ -185,25 +207,74 @@ bottom: 0px;
   }
 }
 
-/* For small phones (up to 360px) */
-@media (max-width: 360px) {
+/* Mid-size phones (≤ 460px) */
+@media (max-width: 460px) {
+  .header-container {
+    gap: 30px;
+    padding: 10px 14px;
+  }
+
+  .logo-img {
+    height: 50px;
+  }
+
   .nav-wrapper {
-    top: 60px; /* less top space */
-    left: 6px;
-    right: 6px;
-    padding: 16px 18px;
-    gap: 10px;
+    top: 65px;
+    left: 8px;
+    right: 8px;
+    padding: 16px 20px;
   }
 
   .nav-button {
     font-size: 14px;
     padding: 10px 12px;
-    border-radius: 10px;
+  }
+
+  .head-but {
+    font-size: 13px;
+    padding: 0.5rem 1rem;
   }
 }
 
-/* For very small phones (up to 320px) */
+/* Small phones (≤ 360px) */
+@media (max-width: 360px) {
+  .header-container {
+    gap: 20px;
+    padding: 8px 12px;
+  }
+
+  .logo-img {
+    height: 45px;
+  }
+
+  .nav-wrapper {
+    top: 60px;
+    padding: 14px 16px;
+    gap: 10px;
+  }
+
+  .nav-button {
+    font-size: 13px;
+    padding: 8px 10px;
+  }
+
+  .head-but {
+    font-size: 12px;
+    padding: 0.4rem 0.8rem;
+  }
+}
+
+/* Ultra-small phones (≤ 320px) */
 @media (max-width: 320px) {
+  .header-container {
+    gap: 16px;
+    padding: 6px 10px;
+  }
+
+  .logo-img {
+    height: 40px;
+  }
+
   .nav-wrapper {
     top: 55px;
     left: 4px;
@@ -213,72 +284,12 @@ bottom: 0px;
   }
 
   .nav-button {
-    font-size: 13px;
-    padding: 8px 10px;
-    border-radius: 8px;
-  }
-}
-.head-but{
-
-
-background: linear-gradient(90deg, #0D0968 0%, #F7751E 100%);
-
-
-  color: #fff;
-  border: none;
-  padding: 0.6rem 1.2rem;
-  border-radius: 6px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.head-but:hover {
- background: linear-gradient(90deg, #0D0968 0%, #F7751E 100%);
-}
-.head-but a {
-  color: inherit;        /* same color as parent text */
-  text-decoration: none; /* remove underline */
-  cursor: pointer;
-}
-
-.head-but a:hover {
-  color: inherit;        /* no color change on hover */
-  text-decoration: none; /* keep it clean */
-}
-/* For mid-size phones (up to 460px) */
-@media (max-width: 460px) {
-  .header-container {
-    gap: 40px;             /* reduce spacing */
-    padding: 10px 14px;    /* tighter padding */
-  }
-
-  .logo-img {
-    height: 50px;          /* slightly smaller logo */
-  }
-
-  .nav-wrapper {
-    top: 65px;
-    left: 8px;
-    right: 8px;
-    padding: 18px 20px;
-    gap: 12px;             /* reduce nav gaps */
-  }
-
-  .nav-button {
-    font-size: 15px;       /* smaller text */
-    padding: 10px 12px;
-    border-radius: 10px;
+    font-size: 12px;
+    padding: 7px 9px;
   }
 
   .head-but {
-    padding: 0.5rem 1rem;  /* smaller CTA button */
-    font-size: 14px;
-    border-radius: 5px;
-  }
-   .container {
-    flex-direction: column;
-    padding: 10px;
+    font-size: 11px;
+    padding: 0.3rem 0.7rem;
   }
 }
-
